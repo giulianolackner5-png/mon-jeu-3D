@@ -15,7 +15,10 @@ jobs:
     - name: Package du jeu
       run: |
         sudo apt-get update && sudo apt-get install -y zip
-        zip -r game.love main.lua config.lua game.json
+        # On entre dans le dossier où sont tes fichiers pour faire le zip
+        cd .github/workflows
+        zip -r ../../game.love main.lua config.lua game.json
+        cd ../..
 
     - name: Build 3DS (.cia)
       uses: TurtleP/lovepotion-action@v2
